@@ -13,7 +13,7 @@ namespace BelsisWorkshop.Api
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the container. asd asd asd
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
@@ -26,11 +26,10 @@ namespace BelsisWorkshop.Api
                     c.SwaggerDoc("v1", new OpenApiInfo() { Title = "Belsis Workshop API", Version = "v1" });
                 }
             );
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ITicket ticket)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ITicket ticket)
         {
             if (env.IsDevelopment())
             {
@@ -65,7 +64,6 @@ namespace BelsisWorkshop.Api
                 //    await context.Response.WriteAsync("Hello World!");
                 //});
             });
-
         }
     }
 }
