@@ -1,0 +1,14 @@
+﻿@model BelsisWorkshop.Api.User
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+}
+
+    <h1>@Model.Name</h1>
+<ul>
+    @foreach (var modelAddress in Model.Addresses)
+    {
+        <li>@modelAddress.Street</li>
+    }
+</ul>
+

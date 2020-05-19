@@ -33,7 +33,7 @@ namespace BelsisWorkshop.Api
                 options.UseNpgsql(Configuration.GetConnectionString("BelsisConnection"));
             });
             services.AddSingleton<ITicket, Ticket>();
-            services.AddControllers();
+            services.AddControllersWithViews();
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo() { Title = "Belsis Workshop API", Version = "v1" });
@@ -49,6 +49,7 @@ namespace BelsisWorkshop.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             ticket.Adi = "Belsis 2";
             app.UseRouting();
             app.UseRequestCulture();
@@ -72,10 +73,9 @@ namespace BelsisWorkshop.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Merhaba}/{action=Index}/{id?}");
             });
         }
     }
